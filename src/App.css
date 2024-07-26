@@ -627,7 +627,7 @@ Credits
   }
   .plot__skeleton {
     background-color: rgba(128, 128, 128, 0.445);
-    color:rgba(128, 128, 128, 0.445);
+    color:rgba(128, 128, 128, 0);
   }
   .desc__skeleton {
     background-color: rgba(128, 128, 128, 0.445);

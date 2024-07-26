@@ -8,7 +8,8 @@ const Movies = () => {
     const [isLoading, setIsloading] = useState(true)
     const [movies, setmovies] = useState([])
     const [sortOrder, setSortOrder] = useState("yearNew")
-    const [searchType, setSearchType] = useState("movie")
+    const [searchType, setSearchType] = useState(!!localStorage.getItem("searchType") ? 
+    localStorage.getItem("searchType") : "movie")
     const [err, setErr] = useState(false)
     const [searchKeyword, setSearchKeyword] = 
     useState(!!localStorage.getItem("searchKey") ? 
@@ -72,7 +73,12 @@ const Movies = () => {
                 className="fliter__select"
                 name="movieType"
                 id=""
-                onChange={(e) => setSearchType(e.target.value)}
+                value={searchType}
+                onChange={(e) => {
+                    setSearchType(e.target.value)
+                    localStorage.setItem("searchType", e.target.value)
+                }
+                }
             >
                 <option value="movie">Movies</option>
                 <option value="series">TV Shows</option>
